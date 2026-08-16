@@ -69,6 +69,8 @@ def build_splits(raw, features, tr_end, va_end):
     return dict(
         Xtr=Xtr, ytr=ytr, Xva=Xva, yva=yva, Xte=Xte, yte=yte,
         scaler=sc, tgt_idx=ti, features=features, vix_test=vix,
+        # Raw-row bookkeeping for the DeepPIPE-Ctrl state features (no leakage):
+        _tr_end=tr_end, _va_end=va_end,
     )
 
 

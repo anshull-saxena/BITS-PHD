@@ -40,6 +40,14 @@ FEATURE_SETS = {
 }
 MAIN_FEATURES = FEATURE_SETS["core14"]
 
+# --- DeepPIPE-Ctrl (RL interval-width controller) ---
+# Discrete action grid: multipliers on the base conformal half-width q_alpha (design doc §4.3).
+CTRL_ACTIONS = [0.5, 0.75, 1.0, 1.25, 1.5]
+# Rolling windows for the controller state features (§4.2).
+CTRL_RV_SHORT = 5      # realized-vol / momentum short window (days)
+CTRL_RV_LONG = 20      # realized-vol / momentum long window (days)
+CTRL_RESID_WIN = 20    # trailing |residual| window (days)
+
 
 def log(m):
     """Timestamped stdout logger."""
