@@ -1,0 +1,14 @@
+[15:53:13] 1676 days | train<= 24613, test up to 26329
+[15:53:13] E1: main comparison
+[15:55:18] E7: Diebold-Mariano (abs-loss) + bootstrap
+[15:55:18] E6: calibration (trained alpha) 80/90/95
+[15:57:17] E8: VIX adaptiveness
+[15:57:17] E2: fail vs fix, 5 seeds
+[16:01:33] E2b: lambda sweep
+[16:03:55] E2c: beta sweep
+[16:06:16] E3: feature ablation
+[16:08:38] E4: robustness
+[16:11:34] E5: rolling-window
+[16:13:48] E9: split-conformal
+[16:14:23] E10: training dynamics + warm-up sweep
+[16:16:50] DONE in 23.6 min. Saved outputs/2026-09-05_155313_reproduce/results_all.json

@@ -1,0 +1,8 @@
+[16:24:34] 1676 days | train_end=1173 val_end=1424
+[16:24:34] Ctrl: training frozen two-phase DeepPIPE
+[16:25:12] Ctrl: base half-width q=1347.2 from 191 validation residuals
+[16:25:12] E11: inner calibration — tiers vs static-conformal vs PID
+[16:25:12] E12: VIX-width correlation (G1 check)
+[16:25:12] E13: rolling-window calibration across folds
+[16:27:24] E14: width-gated backtest (Sharpe / MaxDD)
+[16:27:24] DONE in 2.83 min. Saved outputs/2026-09-05_162434_ctrl/results_ctrl.json
