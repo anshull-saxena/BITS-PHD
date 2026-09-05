@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
+from importlib import resources
 from pathlib import Path
 from typing import Any
 
 import yaml
 
 from deeppipe.config.schema import CtrlConfig, DataConfig, RunConfig, TrainConfig
+
+
+def bundled_config_path(name: str) -> Path:
+    """Return path to a packaged default YAML config (works after wheel install)."""
+    return Path(str(resources.files("deeppipe.configs") / name))
 
 
 def _merge_dataclass(cls, data: dict[str, Any] | None):

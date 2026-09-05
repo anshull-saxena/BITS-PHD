@@ -30,6 +30,9 @@ def make_bandit_dataset(
         actions = list(ctrl.actions)
     if p is None:
         p = cfg.conf
+    q = float(q)
+    if q <= 0:
+        raise ValueError(f"conformal half-width q must be positive, got {q}")
     y, point = predict_split(model, sp, split, ysplit, cfg)
     N = len(y)
     seq_len = sp.get("_seq_len", cfg.seq_len)

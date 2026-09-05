@@ -13,6 +13,23 @@ from deeppipe.pipeline.ctrl import CtrlPipeline
 from deeppipe.pipeline.reproduce import ReproducePipeline
 
 
+def test_bandit_rejects_nonpositive_q(fast_run_config):
+    import pytest
+
+    raw = load_raw(fast_run_config.data_path)
+    n = len(raw)
+    tr_end = int(n * fast_run_config.data.train_split)
+    va_end = tr_end + int(n * fast_run_config.data.val_split)
+    sp = build_splits(raw, fast_run_config.data.features, tr_end, va_end, fast_run_config.train)
+    model = train_deeppipe(sp, True, train_cfg=fast_run_config.train, seed=1)
+
+    with pytest.raises(ValueError, match="must be positive"):
+        make_bandit_dataset(
+            raw, sp, model, 0.0, tr_end,
+            train_cfg=fast_run_config.train, ctrl_cfg=fast_run_config.ctrl,
+        )
+
+
 def test_bandit_smoke(fast_run_config):
     raw = load_raw(fast_run_config.data_path)
     n = len(raw)

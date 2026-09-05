@@ -26,7 +26,7 @@ deeppipe ctrl --data data/market_data.csv --out-dir outputs
 deeppipe figures outputs/<run>/results_all.json --out-dir figures
 
 # Show resolved config
-deeppipe config show --profile reproduce
+deeppipe config --profile reproduce
 ```
 
 Each run writes a timestamped directory under `outputs/`:

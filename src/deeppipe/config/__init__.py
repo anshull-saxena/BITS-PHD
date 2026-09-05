@@ -18,4 +18,5 @@ __all__ = [
     "TARGET",
     "TrainConfig",
     "load_run_config",
+    "bundled_config_path",
 ]

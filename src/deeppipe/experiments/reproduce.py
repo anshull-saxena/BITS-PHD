@@ -335,6 +335,7 @@ def run_all(run_cfg: RunConfig, results_path=None):
 
     RESULTS["meta"]["runtime_min"] = round((time.time() - t0) / 60, 1)
     if results_path:
-        json.dump(RESULTS, open(results_path, "w"), indent=2, default=float)
+        with open(results_path, "w") as fh:
+            json.dump(RESULTS, fh, indent=2, default=float)
         log(f'DONE in {RESULTS["meta"]["runtime_min"]} min. Saved {results_path}')
     return RESULTS

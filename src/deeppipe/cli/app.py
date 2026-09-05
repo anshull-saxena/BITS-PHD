@@ -9,7 +9,7 @@ from typing import Optional
 import typer
 import yaml
 
-from deeppipe.config.load import load_run_config
+from deeppipe.config.load import bundled_config_path, load_run_config
 from deeppipe.pipeline.ctrl import CtrlPipeline
 from deeppipe.pipeline.reproduce import ReproducePipeline
 from deeppipe.reporting.figures import make_figures
@@ -19,7 +19,12 @@ app = typer.Typer(help="DeepPIPE NIFTY 50 — paper reproduction and adaptive ca
 
 
 def _default_config_path(name: str) -> Path:
-    return Path(__file__).resolve().parents[3] / "configs" / name
+    path = bundled_config_path(name)
+    if path.is_file():
+        return path
+    # Editable install from repo checkout (configs/ at project root).
+    repo_path = Path(__file__).resolve().parents[3] / "configs" / name
+    return repo_path if repo_path.is_file() else path
 
 
 @app.command()
