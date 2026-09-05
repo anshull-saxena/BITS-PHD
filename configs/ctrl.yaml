@@ -1,0 +1,23 @@
+data_path: data/market_data.csv
+out_dir: outputs
+seed: 42
+
+data:
+  feature_set: core14
+  train_split: 0.70
+  val_split: 0.15
+
+train:
+  seq_len: 60
+  warmup_ep: 40
+  full_ep: 120
+  conf: 0.90
+  device: auto
+
+ctrl:
+  actions: [0.5, 0.75, 1.0, 1.25, 1.5]
+  rv_short: 5
+  rv_long: 20
+  resid_win: 20
+  tiers: [greedy, linucb, lints, mlp]
+  seed: 42

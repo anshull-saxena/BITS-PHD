@@ -1,0 +1,24 @@
+data_path: data/market_data.csv
+out_dir: outputs
+seed: 42
+write_figures: true
+write_zip: true
+
+data:
+  feature_set: core14
+  train_split: 0.70
+  val_split: 0.15
+
+train:
+  seq_len: 60
+  hidden: 64
+  layers: 2
+  dropout: 0.2
+  batch: 32
+  lr: 0.0005
+  warmup_ep: 40
+  full_ep: 120
+  beta: 0.5
+  conf: 0.90
+  lam: 15.0
+  device: auto
