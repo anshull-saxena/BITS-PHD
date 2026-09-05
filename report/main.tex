@@ -432,10 +432,26 @@ open-source code for full reproduction.
 The authors thank Prof.\ Jabez Christopher and Prof.\ Vasan Arunachalam for their guidance.
 
 \section*{Author Contributions}
-Problem framing, the contextual-bandit formulation, Winkler reward design, state-feature
-selection, the walk-forward protocol, and the experiment matrix were developed jointly by all
-three authors. All subsequent implementation, experimentation, analysis, and writing were divided
-equally ($\sim$33\% each), with mutual cross-review before integration.
+The overall research direction---problem framing (gaps G1--G3), the contextual-bandit
+formulation, and the evaluation protocol---was designed jointly by all three authors. Individual
+ownership of the delivered work was as follows.
+
+\textbf{Raunak Goyal (Layer~1: two-phase DeepPIPE).} Led the base forecaster: the encoder--decoder
+DeepPIPE model, the two-phase training schedule, the data pipeline and feature engineering, and
+the statistical validation suite (Diebold--Mariano, bootstrap CIs, Kupiec and Christoffersen
+tests). Ran experiments E1--E10 and produced Figs.~\ref{fig:failfix}--\ref{fig:intervals}.
+
+\textbf{Anshul Saxena (Layer~2: DeepPIPE-Ctrl).} Led the adaptive controller: the 8-dimensional
+state features, the Winkler reward and offline bandit dataset, the T0/T1/T2 policies
+(GreedyConstant, LinUCB/LinTS, MLP), the rollout loop, and the width-gated economic backtest.
+Ran experiments E11--E14 and produced Fig.~\ref{fig:rolling} and the controller results.
+
+\textbf{Snehanshu Baneerjee (systems, baselines, and reproducibility).} Led the software
+engineering: the installable \texttt{deeppipe} package, typed YAML configuration, the Typer CLI,
+the pipeline/artifact layer, the unit and integration test suite, and the CI workflow. Implemented
+the static-conformal and conformal-PID baselines and owned experiment reproducibility.
+
+All authors contributed to analysis, manuscript writing, and cross-review before integration.
 
 \begin{thebibliography}{9}
 \bibitem{wang2020deeppipe}
